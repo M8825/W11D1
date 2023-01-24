@@ -13,6 +13,23 @@ function Form(props) {
         notification: "", //checkbox
     })
 
+    const [errors, setErrors] = useState([]);
+
+    const validateEmail = (email) => {
+        const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(String(email).toLowerCase());
+    }
+
+    const validate = () => {
+        let errors = []
+
+        if (user.name === '') {
+            errors.push("Name cannot be blank")
+        }
+
+
+    }
+
 
     const handleChange = (field) => {
         return (event) => {
